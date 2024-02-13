@@ -7,8 +7,7 @@ tokenizer1 = AutoTokenizer.from_pretrained(checkpoint1)
 model_1 = AutoModelForSequenceClassification.from_pretrained(checkpoint1)
 
 # Define the sentences
-sequences = ["I've been waiting for a HuggingFace course my whole life.",
-             "I hate this so much!"]
+sequences = ["I've been waiting for a HuggingFace course my whole life.", "I hate this so much!"]
 
 # Manually tokenize the sentences and convert them to IDs
 token_ids = []
