@@ -26,7 +26,6 @@ model_inputs2 = tokenizer(sequences, padding="max_length")
 # Will pad the sequences up to the specified max length
 model_inputs3 = tokenizer(sequences, padding="max_length", max_length=14)
 
-
 #It can also truncate sequences to a maximum length if they are longer than the model 
 sequences_2 = ["I've been waiting for a HuggingFace course my whole life.", "So have I!"]
 # Will truncate the sequences that are longer than the model max length
@@ -44,3 +43,7 @@ model_inputs_1 = tokenizer(sequences_3, padding=True, return_tensors="pt")
 model_inputs_2 = tokenizer(sequences_3, padding=True, return_tensors="tf")
 # Returns NumPy arrays
 model_inputs_3 = tokenizer(sequences_3, padding=True, return_tensors="np")
+
+print(model_inputs_1)
+print(model_inputs_2)
+print(model_inputs_3)
