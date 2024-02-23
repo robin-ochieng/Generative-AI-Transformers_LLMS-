@@ -44,6 +44,29 @@ model_inputs_2 = tokenizer(sequences_3, padding=True, return_tensors="tf")
 # Returns NumPy arrays
 model_inputs_3 = tokenizer(sequences_3, padding=True, return_tensors="np")
 
-print(model_inputs_1)
+print(model_inputs_1["input_ids"])
 print(model_inputs_2)
 print(model_inputs_3)
+
+sequences_3_ = 'I have been waiting for a'
+tokens = tokenizer.tokenize(sequences_3_)
+ids_1 = tokenizer.convert_tokens_to_ids(tokens) 
+model_inputs_4 = tokenizer(sequences_3_) 
+print(ids_1)
+
+print(tokenizer(sequences_3_)['attention_mask'])
+
+print(tokenizer.decode(model_inputs_4['input_ids']))
+print(tokenizer.decode(ids_1))
+
+import torch
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+checkpoint = "distilbert-base-uncased-finetuned-sst-2-english"
+tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+model = AutoModelForSequenceClassification.from_pretrained(checkpoint)
+sequences = ["I've been waiting for a HuggingFace course my whole life.", "So have I!"]
+
+tokens = tokenizer(sequences, padding=True, truncation=True, return_tensors="pt")
+output = model(**tokens)
+

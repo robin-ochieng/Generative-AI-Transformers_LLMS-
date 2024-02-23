@@ -44,4 +44,7 @@ checkpoint = "bert-base-uncased"
 max_length = 128
 batch_size = 8
 
-preprocess_glue(dataset_name, task_name, checkpoint, max_length=max_length, batch_size=batch_size)
+Automation = preprocess_glue(dataset_name, task_name, checkpoint, max_length=max_length, batch_size=batch_size)
+
+
+
